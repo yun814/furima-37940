@@ -14,49 +14,50 @@
 | birth_date         | date   | null: false               |
 
 ### Association
-- has_many :items, foreign_key: :seller_id
-- has_many :oders, foreign_key: :buyer_id
+- has_many :items
+- has_many :orders
 
 ## itemsテーブル
 
-| Colum           | Type       | Option                         |
-|-----------------|------------|--------------------------------|
-| name            | string     | null: false                    |
-| explanation     | text       | null: false                    |
-| category        | text       | null: false                    |
-| condition       | text       | null: false                    |
-| delivery_charge | text       | null: false                    |
-| ship_from       | string     | null: false                    |
-| shipping_day    | text       | null: false                    |
-| price           | integer    | null: false                    |
-| seller          | references | null: false, foreign_key: true |
+| Colum              | Type       | Option                         |
+|--------------------|------------|--------------------------------|
+| name               | string     | null: false                    |
+| explanation        | text       | null: false                    |
+| category_id        | integer    | null: false                    |
+| condition_id       | integer    | null: false                    |
+| delivery_charge_id | integer    | null: false                    |
+| ship_from_id       | integer    | null: false                    |
+| shipping_day_id    | integer    | null: false                    |
+| price              | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
-- has_one :oder
-- belongs_to :seller, class_name: 'User', foreign_key: :seller_id
+- has_one :order
+- belongs_to :user
 
-## odersテーブル
+## ordersテーブル
 
-| Colum  | Type       | Option                         |
-|--------|------------|--------------------------------|
-| item   | references | null: false, foreign_key: true |
-| buyer  | references | null: false, foreign_key: true |
+| Colum | Type       | Option                         |
+|-------|------------|--------------------------------|
+| item  | references | null: false, foreign_key: true |
+| user  | references | null: false, foreign_key: true |
 
 ### Association
 - has_one :shipping_information
 - belongs_to :item
-- belongs_to :buyer, class_name: 'User', foreign_key: :buyer_id
+- belongs_to :user
 
 ## shipping_informationsテーブル
 
 | Colum            | Type       | Option                         |
 |------------------|------------|--------------------------------|
 | postal_code      | string     | null: false                    |
-| prefecture       | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | municipality     | string     | null: false                    |
 | address          | string     | null: false                    |
 | building         | string     |                                |
 | telephone_number | string     | null: false                    |
+| oder             | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :oder
