@@ -8,5 +8,6 @@ class Item < ApplicationRecord
   validates :shipping_day_id, presence: true
   validates :price, presence: true
 
+  has_one_attached :image
   belongs_to :user
 end
