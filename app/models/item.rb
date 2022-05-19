@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   validates :condition_id, numericality: {other_than: 1}
   validates :delivery_charge_id, numericality: {other_than: 1}
   validates :prefecture_id, numericality: {other_than: 1}
-  validates :shipping_day_id, presence: true
+  validates :shipping_day_id, numericality: {other_than: 1}
   validates :price, presence: true
 
   has_one_attached :image
@@ -15,4 +15,5 @@ class Item < ApplicationRecord
   belongs_to :condition
   belongs_to :delivery_charge
   belongs_to :prefecture
+  belongs_to :shipping_day
 end
