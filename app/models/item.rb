@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   validates :prefecture_id, numericality: {other_than: 1}
   validates :shipping_day_id, numericality: {other_than: 1}
   validates :price, presence: true
+  validates :image, presence: true
 
   has_one_attached :image
   belongs_to :user
