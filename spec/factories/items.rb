@@ -3,11 +3,11 @@ FactoryBot.define do
     name               {Faker::Commerce.product_name}
     explanation        {Faker::Lorem.paragraph}
     price              {Faker::Number.within(range: 300..9999999)}
-    category           {Category.all.sample}
-    condition          {Condition.all.sample}
-    delivery_charge    {DeliveryCharge.all.sample}
-    prefecture         {Prefecture.all.sample}
-    shipping_day       {ShippingDay.all.sample}
+    category_id        {Faker::Number.within(range: 1..10)}
+    condition_id       {Faker::Number.within(range: 1..6)}
+    delivery_charge_id {Faker::Number.within(range: 1..2)}
+    prefecture_id      {Faker::Number.within(range: 1..47)}
+    shipping_day_id    {Faker::Number.within(range: 1..3)}
 
     association :user
 

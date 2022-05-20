@@ -59,27 +59,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters")
       end
       it 'category_idが空だと出品できない' do
-        @item.category_id = ''
+        @item.category_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'condition_idが空だと出品できない' do
-        @item.condition_id = ''
+        @item.condition_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it 'delivery_charge_idが空だと出品できない' do
-        @item.delivery_charge_id = ''
+        @item.delivery_charge_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery charge can't be blank")
       end
       it 'prefecture_idが空だと出品できない' do
-        @item.prefecture_id = ''
+        @item.prefecture_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'shipping_day_idが空だと出品できない' do
-        @item.shipping_day_id = ''
+        @item.shipping_day_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping day can't be blank")
       end
