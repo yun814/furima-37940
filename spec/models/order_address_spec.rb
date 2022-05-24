@@ -95,7 +95,7 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Telephone number is invalid. Input only number")
       end
-      it '購入者のuser情報に紐付いていないと購入できない' do
+      it 'userに紐付いていないと購入できない' do
         @order_address.user_id = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("User can't be blank")
