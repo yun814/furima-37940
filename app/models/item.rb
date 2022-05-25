@@ -11,6 +11,7 @@ class Item < ApplicationRecord
   validates :shipping_day_id, numericality: {other_than: 0, message: "can't be blank"}
 
   has_one_attached :image
+  has_one :order
   belongs_to :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
