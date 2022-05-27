@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  validates :image, presence: true
+  validates :images, presence: true, length: {minimum: 1, maximum: 5, message: "can't be 5 or more"}
   validates :name, presence: true
   validates :explanation, presence: true
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'is out of setting range'}
@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
   validates :shipping_day_id, numericality: {other_than: 0, message: "can't be blank"}
 
-  has_one_attached :image
+  has_many_attached :images
   has_one :order
   belongs_to :user
 
